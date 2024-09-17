@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
+    <title>Faculty Dashboard</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
@@ -135,14 +135,14 @@
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="profile">
-            <img src="asset/programmer.png" alt="Profile">
-            <h5>9923017142</h5>
-            <p>Student</p>
+            <img src="asset/profile.png" alt="Profile">
+            <h5>XXX</h5>
+            <p>Faculty</p>
         </div>
         <a href="#"><i class="fas fa-home"></i> Home</a>
-        <a href="notification.html"><i class="fas fa-bell"></i> Notification</a>
-        <a href="form.html"><i class="fas fa-file-alt"></i> Application Forms</a>
-        <a href="status.html"><i class="fas fa-envelope"></i> Form Status</a>
+        <a href="facluty notication.html"><i class="fas fa-bell"></i> Notification</a>
+        <a href="application.html"><i class="fas fa-file-alt"></i> Application</a>
+        <!-- <a href="#"><i class="fas fa-envelope"></i> Request</a> -->
         <a href="#"><i class="fas fa-key"></i> Change Password</a>
         <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
@@ -161,104 +161,71 @@
         </nav>
         <!-- Content here -->
         <div class="container">
-            <h1>Welcome Mr kanagavel s</h1>
+            <h1>Welcome, Faculty Member!</h1>
 
             <div class="row">
                 <div class="col-md-3 col-sm-6">
-                    <div class="summary-box bg-success text-dark">
+                    <div class="summary-box bg-warning text-dark">
                         <h4>This Month Review</h4>
-                        <p>15</p>
+                        <p>50</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="summary-box bg-warning text-dark">
                         <h4>Total Forms</h4>
-                        <p>5</p>
+                        <p>30</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <div class="summary-box bg-danger text-dark">
+                    <div class="summary-box bg-warning text-dark">
                         <h4>Rejected Forms</h4>
-                        <p>2</p>
+                        <p>10</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <div class="summary-box bg-primary text-dark">
+                    <div class="summary-box bg-warning text-dark">
                         <h4>Waiting Forms</h4>
-                        <p>1</p>
+                        <p>20</p>
                     </div>
                 </div>
             </div>
 
-            <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
-              <div style="margin: 0 auto; max-width: 800px; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-                  <table style="width: 100%; border-collapse: collapse;">
-                      <thead>
-                          <tr>
-                              <th style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd; background-color: #f2f2f2;">Form Name</th>
-                              <th style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd; background-color: #f2f2f2;">Form Id</th>
-                              <th style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd; background-color: #f2f2f2;">Date</th>
-                              <th style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd; background-color: #f2f2f2;">Status</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">Leave application</td>
-                              <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">4567</td>
-                              <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">2024-09-15</td>
-                              <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">
-                                  <span class="approved-icon" style="font-size: 1.5em; color: blue;">&#10004;</span>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">On Duty</td>
-                              <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">5292</td>
-                              <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">2024-09-12</td>
-                              <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">
-                                  <span class="rejected-icon" style="font-size: 1.5em; color: red;">&#10008;</span>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">Bonafide</td>
-                              <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">6583</td>
-                              <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">2024-09-10</td>
-                              <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">
-                                  <span class="pending-icon" style="font-size: 1.5em; color: orange;">&#8987;</span>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-          </div>
-      
-          <script>
-              // Add animations to status icons
-              document.querySelectorAll('.approved-icon').forEach(icon => {
-                  icon.style.animation = "approveAnimation 1s ease-in-out infinite";
-              });
-      
-              document.querySelectorAll('.rejected-icon').forEach(icon => {
-                  icon.style.animation = "rejectAnimation 0.5s ease-in-out infinite";
-              });
-      
-              // Add CSS animations using JavaScript
-              const style = document.createElement('style');
-              style.innerHTML = `
-                  @keyframes approveAnimation {
-                      0% { transform: scale(1); }
-                      50% { transform: scale(1.2); }
-                      100% { transform: scale(1); }
-                  }
-      
-                  @keyframes rejectAnimation {
-                      0% { transform: rotate(0deg); }
-                      50% { transform: rotate(15deg); }
-                      100% { transform: rotate(0deg); }
-                  }
-              `;
-              document.head.appendChild(style);
-          </script>
-    
+            <div class="table-container mt-4">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Form Details</th>
+                            <th>Time</th>
+                            <th>Section</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>On Duty</td>
+                            <td>10:00 AM</td>
+                            <td>Section A</td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>Leave Application</td>
+                            <td>11:30 AM</td>
+                            <td>Section A</td>
+                        </tr>
+                        <tr>
+                            <td>Jane </td>
+                            <td>Bonafide</td>
+                            <td>11:30 AM</td>
+                            <td>Section A</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>

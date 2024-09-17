@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Login</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .login-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-image {
+            background-image: url('your-image-url.jpg');
+            /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            width: 50%;
+            padding-left: 190px;
+        }
+
+        .login-form {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-container {
+            width: 80%;
+            max-width: 400px;
+        }
+
+        h2 {
+            padding: 10px;
+        }
+
+        .copy {
+            text-align: center;
+        }
+
+        .navbar-brand img {
+            height: 40px; /* Adjust the height of the logo */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="asset/univemetalogo.jpeg" alt="UnivMeta Logo" class="rounded-circle" > UnivMeta-Acadamic Form Automation System
+        </a>
+    </nav>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <!-- Left Image -->
+        <div class="left-image">
+            <img src="asset/log.gif" alt="">
+        </div>
+
+        <!-- Login Form -->
+        <div class="login-form">
+            <div class="form-container">
+                <h2>Faculty Login</h2>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="facultyId">Faculty ID</label>
+                        <input type="text" class="form-control" id="facultyId" placeholder="Enter Faculty ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <a href="#" class="btn btn-link btn-block">Forgot Password?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="copy">
+        <footer>
+            <p>&copy; 2024 AFAS Team. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            // Get the values from the input fields
+            const facultyId = document.getElementById('facultyId').value;
+            const password = document.getElementById('password').value;
+
+            // Check if the entered ID and password match the stored ones
+            if (facultyId === '9923017142' && password === 'BCA') {
+                alert('Login successful!');
+                // Move to the next page, e.g., dashboard.html
+                window.location.href = "Faclutydash.html";
+            } else {
+                alert('Invalid ID or Password. Please try again.');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
