@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Section with Different Box Types</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .section-heading {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .forms-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .form-box {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 280px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-box h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .form-box p {
+            margin: 10px 0;
+        }
+
+        .form-box .btn {
+            display: inline-block;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-box .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Different types of form boxes */
+        .form-box.type1 {
+            border-left: 5px solid #007BFF;
+        }
+
+        .form-box.type2 {
+            border-left: 5px solid #28a745;
+        }
+
+        .form-box.type3 {
+            border-left: 5px solid #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="section-heading">Forms Section</h1>
+
+    <div class="forms-container">
+        <div class="form-box type1 ">
+            <h3>Bonafide Certificate</h3>
+            <p>Description for form type 1 goes here. This form is used for collecting basic information.</p>
+            <a href="bonafide.html" class="btn">Get Form</a>
+        </div>
+        <div class="form-box type1 ">
+            <h3>Bonafide Certificate</h3>
+            <p>Description for form type 1 goes here. This form is used for collecting basic information.</p>
+            <a href="bonafide.html" class="btn">Get Form</a>
+        </div>
+        <div class="form-box type2">
+            <h3>On Duty</h3>
+            <p>Description for form type 2 goes here. This form is used for detailed data collection.</p>
+            <a href="onduty.html" class="btn">Get Form</a>
+        </div>
+
+        <div class="form-box type1">
+            <h3>Bonafide Certificate</h3>
+            <p>Description for form type 1 goes here. This form is used for collecting basic information.</p>
+            <a href="bonafide.html" class="btn">Get Form</a>
+        </div>
+        <div class="form-box type3">
+            <h3>Leave Application</h3>
+            <p>Description for form type 3 goes here. This form is for advanced users and has additional fields.</p>
+            <a href="#" class="btn">Get Form</a>
+        </div>
+        <div class="form-box type1">
+            <h3>Bonafide Certificate</h3>
+            <p>Description for form type 1 goes here. This form is used for collecting basic information.</p>
+            <a href="bonafide.html" class="btn">Get Form</a>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
