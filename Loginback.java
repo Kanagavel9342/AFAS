@@ -7,24 +7,15 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/submit")
 public class FormServlet extends HttpServlet {
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        // Get form data
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        
-        // Simple validation
-        if ("user".equals(username) && "pass".equals(password)) {
-            // Success case
+         if ("9923017046".equals(username) && "BCA".equals(password)) {
+            // Success case - Redirect to the dashboard
             response.sendRedirect("dash.html");
-            response.setContentType("text/html");
-            response.getWriter().write("<h2>Login Successful</h2>");
         } else {
-            // Failure case
-            response.setContentType("text/html");
-            response.getWriter().write("<h2>Invalid Username or Password</h2>");
+            response.sendRedirect("login.html?error=invalid");
         }
     }
 }
