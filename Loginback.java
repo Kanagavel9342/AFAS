@@ -18,6 +18,7 @@ public class FormServlet extends HttpServlet {
         // Simple validation
         if ("user".equals(username) && "pass".equals(password)) {
             // Success case
+            response.sendRedirect(".html");
             response.setContentType("text/html");
             response.getWriter().write("<h2>Login Successful</h2>");
         } else {
