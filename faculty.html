@@ -105,7 +105,12 @@
                 alert('Login successful!');
                 // Move to the next page, e.g., dashboard.html
                 window.location.href = "Faclutydash.html";
-            } else {
+            }else if (facultyId === '9923017046' && password === 'BCA') {
+                alert('Login successful!');
+                // Move to the next page, e.g., dashboard.html
+                window.location.href = "Faclutydash.html";
+            } 
+            else {
                 alert('Invalid ID or Password. Please try again.');
             }
         });
