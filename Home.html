@@ -30,7 +30,8 @@
                 </div>
                 <div class="col-md-6 login-form">
                     <h2>Student Login</h2>
-                    <form action="https://univmeta.xyz/Loginback" method="post">
+                    <!-- Form pointing to the correct servlet URL -->
+                    <form action="https://univmeta.xyz/home/Loginback" method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" name="username" placeholder="Register number" required>
                         </div>
@@ -40,10 +41,11 @@
                         <button type="submit" class="btn btn-primary btn-block">Login</button>
                     </form>
 
-                    <!-- Display error message (if passed from the server) -->
+                    <!-- Display error message if the login fails -->
                     <div class="error-message">
                         <p style="color: red;">
                             <script>
+                                // Show an error message if the login fails
                                 const params = new URLSearchParams(window.location.search);
                                 if (params.has('error')) {
                                     document.write("Incorrect register number or password. Please try again.");
@@ -55,8 +57,9 @@
             </div>
         </div>
     </div>
+    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html>
+    </html>
