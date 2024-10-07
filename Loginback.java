@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet {
             // Redirect to the next page on successful login
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
-            response.sendRedirect("nextPage.html"); // Redirect to your desired page
+            response.sendRedirect("dash.html"); 
         } else {
             // Redirect back with an error parameter
             response.sendRedirect("login.html?error=true");
