@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- css file -->
+    <link rel="stylesheet" href="sis.css">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700&display=swap"
+        rel="stylesheet">
     <style>
         body {
             background-image: url(asset/bg.jpeg);
@@ -15,13 +24,16 @@
         }
     </style>
 </head>
+
 <body>
+    <!-- Outer Container for Form and Header -->
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="login-outer-container text-center">
             <!-- Logo and Title Section -->
             <div class="d-flex align-items-center mb-4">
-                <img src="asset/univemetalogo.jpeg" alt="logo" class="rounded-circle" style="height: 60px; width: 60px;">
-                <h4 class="font-weight-bold ml-3 mb-0">UnivMeta - AFAS</h4>
+                <img src="asset/univemetalogo.jpeg" alt="logo" class="rounded-circle"
+                    style="height: 60px; width: 60px;">
+                <h4 class="font-weight-bold ml-3 mb-0" id="AFAS">UnivMeta -AFAS</h4>
             </div>
 
             <div class="row login-container">
@@ -30,37 +42,55 @@
                 </div>
                 <div class="col-md-6 login-form">
                     <h2>Student Login</h2>
-                    <!-- Form pointing to the correct servlet URL -->
-                  <form action="/login" method="post">
-
+                    <form action="/submit" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="username" placeholder="Register number" required>
+                            <input type="text" class="form-control" placeholder="Register number" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+                            <input type="password" class="form-control" placeholder="Password" required>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Login</button>
                     </form>
-
-                    <!-- Display error message if the login fails -->
-                    <div class="error-message">
-                        <p style="color: red;">
-                            <script>
-                                // Show an error message if the login fails
-                                const params = new URLSearchParams(window.location.search);
-                                if (params.has('error')) {
-                                    document.write("Incorrect register number or password. Please try again.");
-                                }
-                            </script>
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for password storage and redirection -->
+  <!--  <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const registerInput = document.querySelector('input[type="text"]');
+            const passwordInput = document.querySelector('input[type="password"]');
+
+            // Store default register number and password (only for demonstration, not secure)
+            localStorage.setItem('storedRegisterNumber', '9923017142');
+            localStorage.setItem('storedPassword', 'BCA');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent form submission
+
+                // Get the user input
+                const enteredRegisterNumber = registerInput.value;
+                const enteredPassword = passwordInput.value;
+
+                // Retrieve the stored register number and password
+                const storedRegisterNumber = localStorage.getItem('storedRegisterNumber');
+                const storedPassword = localStorage.getItem('storedPassword');
+
+                // Check if entered credentials match the stored values
+                if (enteredRegisterNumber === storedRegisterNumber && enteredPassword === storedPassword) {
+                    // Redirect to the next page
+                    window.location.href = "dash.html"; // Replace with your actual next page URL
+                } else {
+                    alert('Incorrect register number or password. Please try again.');
+                }
+            });
+        });
+    </script>-->
 </body>
-    </html>
+
+</html>
