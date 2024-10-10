@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,33 +57,22 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- JavaScript for password storage and redirection -->
    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.querySelector('form');
             const registerInput = document.querySelector('input[type="text"]');
             const passwordInput = document.querySelector('input[type="password"]');
-
-            // Store default register number and password (only for demonstration, not secure)
             localStorage.setItem('storedRegisterNumber', '9923017142');
             localStorage.setItem('storedPassword', 'BCA');
-
-            form.addEventListener('submit', function(event) {
+ form.addEventListener('submit', function(event) {
                 event.preventDefault(); // Prevent form submission
-
-                // Get the user input
                 const enteredRegisterNumber = registerInput.value;
                 const enteredPassword = passwordInput.value;
-
-                // Retrieve the stored register number and password
                 const storedRegisterNumber = localStorage.getItem('storedRegisterNumber');
                 const storedPassword = localStorage.getItem('storedPassword');
-
-                // Check if entered credentials match the stored values
                 if (enteredRegisterNumber === storedRegisterNumber && enteredPassword === storedPassword) {
                     // Redirect to the next page
-                    window.location.href = "dash.html"; // Replace with your actual next page URL
+                    window.location.href = "dash.html";
                 } else {
                     alert('Incorrect register number or password. Please try again.');
                 }
