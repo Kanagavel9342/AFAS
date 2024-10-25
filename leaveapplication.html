@@ -79,10 +79,27 @@
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            <div class="form-group">
-                <label for="department">Department:</label>
-                <input type="text" id="department" name="department" required>
-            </div>
+         <div class="form-group">
+    <label for="department">Department:</label>
+    <select id="department" name="department" required>
+        <option value="" disabled selected>Select a Department</option>
+        <option value="btech-cse">B.Tech in Computer Science and Engineering</option>
+        <option value="btech-ece">B.Tech in Electronics and Communication Engineering</option>
+        <option value="btech-mechanical">B.Tech in Mechanical Engineering</option>
+        <option value="btech-civil">B.Tech in Civil Engineering</option>
+        <option value="btech-eee">B.Tech in Electrical and Electronics Engineering</option>
+        <option value="bsc-physics">B.Sc in Physics</option>
+        <option value="bsc-chemistry">B.Sc in Chemistry</option>
+        <option value="bsc-mathematics">B.Sc in Mathematics</option>
+        <option value="bba">BBA</option>
+        <option value="mba-marketing">MBA in Marketing</option>
+        <option value="llb">BA LL.B</option>
+        <option value="bed">B.Ed</option>
+        <option value="bsc-agriculture">B.Sc in Agriculture</option>
+        <option value="bdes-fashion">B.Des in Fashion Design</option>
+    </select>
+</div>
+
             <div class="form-group">
                 <label for="leaveType">Type of Leave:</label>
                 <select id="leaveType" name="leaveType" required>
