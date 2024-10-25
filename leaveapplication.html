@@ -48,7 +48,7 @@
             border-radius: 5px;
         }
 
-        .form-group input[type="submit"] {
+        .form-group input[type="button"] {
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -62,7 +62,7 @@
             cursor: pointer;
         }
 
-        .form-group input[type="submit"]:hover {
+        .form-group input[type="button"]:hover {
             background-color: #45a049;
         }
     </style>
@@ -70,7 +70,7 @@
 <body>
     <div class="form-container">
         <h1>Leave Application Form</h1>
-        <form action="/submit-leave-application" method="post">
+        <form id="leaveApplicationForm">
             <div class="form-group">
                 <label for="date">Date:</label>
                 <input type="date" id="date" name="date" required>
@@ -79,28 +79,27 @@
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
             </div>
-         <div class="form-group">
-    <label for="department">Department:</label>
-    <select id="department" name="department" required>
-        <option value="" disabled selected>Select a Department</option>
-        <option value="bca">BCA</option>
-        <option value="btech-cse">B.Tech in Computer Science and Engineering</option>
-        <option value="btech-ece">B.Tech in Electronics and Communication Engineering</option>
-        <option value="btech-mechanical">B.Tech in Mechanical Engineering</option>
-        <option value="btech-civil">B.Tech in Civil Engineering</option>
-        <option value="btech-eee">B.Tech in Electrical and Electronics Engineering</option>
-        <option value="bsc-physics">B.Sc in Physics</option>
-        <option value="bsc-chemistry">B.Sc in Chemistry</option>
-        <option value="bsc-mathematics">B.Sc in Mathematics</option>
-        <option value="bba">BBA</option>
-        <option value="mba-marketing">MBA in Marketing</option>
-        <option value="llb">BA LL.B</option>
-        <option value="bed">B.Ed</option>
-        <option value="bsc-agriculture">B.Sc in Agriculture</option>
-        <option value="bdes-fashion">B.Des in Fashion Design</option>
-    </select>
-</div>
-
+            <div class="form-group">
+                <label for="department">Department:</label>
+                <select id="department" name="department" required>
+                    <option value="" disabled selected>Select a Department</option>
+                    <option value="bca">BCA</option>
+                    <option value="btech-cse">B.Tech in Computer Science and Engineering</option>
+                    <option value="btech-ece">B.Tech in Electronics and Communication Engineering</option>
+                    <option value="btech-mechanical">B.Tech in Mechanical Engineering</option>
+                    <option value="btech-civil">B.Tech in Civil Engineering</option>
+                    <option value="btech-eee">B.Tech in Electrical and Electronics Engineering</option>
+                    <option value="bsc-physics">B.Sc in Physics</option>
+                    <option value="bsc-chemistry">B.Sc in Chemistry</option>
+                    <option value="bsc-mathematics">B.Sc in Mathematics</option>
+                    <option value="bba">BBA</option>
+                    <option value="mba-marketing">MBA in Marketing</option>
+                    <option value="llb">BA LL.B</option>
+                    <option value="bed">B.Ed</option>
+                    <option value="bsc-agriculture">B.Sc in Agriculture</option>
+                    <option value="bdes-fashion">B.Des in Fashion Design</option>
+                </select>
+            </div>
             <div class="form-group">
                 <label for="leaveType">Type of Leave:</label>
                 <select id="leaveType" name="leaveType" required>
@@ -125,10 +124,44 @@
                 <textarea id="reason" name="reason" rows="4" required></textarea>
             </div>
             <div class="form-group">
-                <input type="submit" value="Submit">
+                <input type="button" value="Submit" onclick="submitForm()">
             </div>
         </form>
     </div>
+
+    <script>
+        async function submitForm() {
+            const formData = {
+                name: document.getElementById('name').value,
+                department: document.getElementById('department').value,
+                leaveType: document.getElementById('leaveType').value,
+                startDate: document.getElementById('startDate').value,
+                endDate: document.getElementById('endDate').value,
+                reason: document.getElementById('reason').value,
+            };
+
+            try {
+                const response = await fetch('http://localhost:8080/api/leave', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    alert('Leave application submitted successfully!');
+                    // Reset the form after successful submission
+                    document.getElementById('leaveApplicationForm').reset();
+                } else {
+                    alert('Failed to submit leave application.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while submitting the application.');
+            }
+        }
+    </script>
 </body>
 </html>
-
