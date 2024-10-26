@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Participation Approval Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+
+        .form-group label {
+            color: #343a40;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #ffc107;
+            outline: none;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #ffc107;
+            color: black;
+            border: none;
+            cursor: pointer;
+            padding: 12px 24px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Event Participation Approval Form</h1>
+        <form id="eventForm">
+            <div class="form-group">
+                <label for="eventName">1. Name of the Event:</label>
+                <input type="text" id="eventName" name="eventName" required>
+            </div>
+            <div class="form-group">
+                <label for="studentName">2. Student Name:</label>
+                <input type="text" id="studentName" name="studentName" required>
+            </div>
+            <div class="form-group">
+                <label for="regNo">3. Register Number:</label>
+                <input type="text" id="regNo" name="regNo" required>
+            </div>
+            <div class="form-group">
+                <label for="organizingDepartment">4. Organizing Department/Club/College:</label>
+                <input type="text" id="organizingDepartment" name="organizingDepartment" required>
+            </div>
+            <div class="form-group">
+                <label for="numberOfDays">5. Number of Days:</label>
+                <input type="number" id="numberOfDays" name="numberOfDays" required min="1">
+            </div>
+            <div class="form-group">
+                <label for="startDate">6. Start Date:</label>
+                <input type="date" id="startDate" name="startDate" required>
+            </div>
+            <div class="form-group">
+                <label for="endDate">7. End Date:</label>
+                <input type="date" id="endDate" name="endDate" required>
+            </div>
+            <div class="form-group">
+                <label for="eventType">8. Type of the Event:</label>
+                <select id="eventType" name="eventType" required>
+                    <option value="" disabled selected>Select Type</option>
+                    <option value="co-curricular">Co-Curricular</option>
+                    <option value="extra-curricular">Extra-Curricular</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="additionalInfo">9. Additional Information (if any):</label>
+                <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="button" value="Generate PDF" onclick="generatePDF()">
+            </div>
+        </form>
+    </div>
+
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            doc.setFontSize(16);
+            doc.text('Event Participation Approval Form', 14, 20);
+            
+            doc.setFontSize(12);
+            doc.text('1. Name of the Event: ' + document.getElementById('eventName').value, 14, 30);
+            doc.text('2. Student Name: ' + document.getElementById('studentName').value, 14, 40);
+            doc.text('3. Register Number: ' + document.getElementById('regNo').value, 14, 50);
+            doc.text('4. Organizing Department/Club/College: ' + document.getElementById('organizingDepartment').value, 14, 60);
+            doc.text('5. Number of Days: ' + document.getElementById('numberOfDays').value, 14, 70);
+            doc.text('6. Start Date: ' + document.getElementById('startDate').value, 14, 80);
+            doc.text('7. End Date: ' + document.getElementById('endDate').value, 14, 90);
+            doc.text('8. Type of the Event: ' + document.getElementById('eventType').value, 14, 100);
+            doc.text('9. Additional Information: ' + document.getElementById('additionalInfo').value, 14, 110);
+
+            // Add watermark
+            doc.setTextColor(200, 200, 200);
+            doc.setFontSize(40);
+            doc.text('UNIVMETA', 105, 150, { align: 'center', angle: 45 });
+
+            // Save PDF
+            doc.save('event_participation_approval_form.pdf');
+        }
+    </script>
+</body>
+</html>

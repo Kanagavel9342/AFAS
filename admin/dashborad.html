@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: white; /* White background */
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #343a40;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: width 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+
+        .sidebar.closed {
+            width: 20px; /* Width when closed */
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .profile h5 {
+            margin-bottom: 5px;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057; /* Light grey on hover */
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .toggle-sidebar {
+            cursor: pointer;
+            font-size: 20px;
+            color: #000000; /* Black */
+        }
+
+        /* Cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            color: #343a40;
+        }
+
+        .card i {
+            font-size: 30px;
+            color: #ffc107; /* Yellow */
+        }
+
+        /* Notification count */
+        .notification-count {
+            background-color: #dc3545; /* Red background */
+            color: white; /* White text */
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            margin-left: 5px;
+            vertical-align: super; /* Aligns the count slightly above the text */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .sidebar.closed {
+                width: 60px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar a {
+                font-size: 16px;
+            }
+
+            .header h1 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="profile">
+            <img src="asset/profile.png" alt="Profile">
+            <h5>Admin</h5>
+            <p>Administrator</p>
+        </div>
+        <a href="studentdetail.html"><i class="fas fa-user-graduate"></i> Student Details</a>
+        <a href="#"><i class="fas fa-chalkboard-teacher"></i> Faculty Details</a>
+        <a href="studentform.html"><i class="fas fa-file-alt"></i> Student Applications</a>
+        <a href="facultyforms.html"><i class="fas fa-file-alt"></i> Faculty Applications</a>
+        <a href="notification.html"><i class="fas fa-bell"></i> Notifications <span class="notification-count">5</span></a>
+        <a href="#"><i class="fas fa-key"></i> Change Password</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="toggle-sidebar" onclick="toggleSidebar()">&#9776;</div> <!-- Open button -->
+        </div>
+        
+        <div class="card-container">
+            <div class="card">
+                <i class="fas fa-file-alt"></i>
+                <h3>Total Forms</h3>
+                <p>120</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-clock"></i>
+                <h3>Waiting Forms</h3>
+                <p>30</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-times-circle"></i>
+                <h3>Rejected Forms</h3>
+                <p>10</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-check-circle"></i>
+                <h3>Approved Forms</h3>
+                <p>80</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("closed");
+        }
+
+        function logout() {
+            alert("You have been logged out.");
+            window.location.href = "index.html"; // Redirect to the login page (change to your login page URL)
+        }
+    </script>
+</body>
+</html>
